@@ -92,19 +92,12 @@ umsi_titles = {}
 ## Find the container that holds the title that belongs to that person (HINT: a class name)
 ## Grab the text of each of those elements and put them in the dictionary umsi_titles properly
 
-# print(people)
-# for person in people:
-# 	d = person.div
-# 	print(d)
-	# print("****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************")
-	# name = (d.find({"class": "field-name-title"}))
-	# title = (d.find(({"class": "field-name-field-person-titles"})))
+for person in people:
+	person_name = person.find("div",{"property":"dc:title"})
+	person_title = person.find("div", {"class": "field-name-field-person-titles"})
+	umsi_titles[person_name.text] = person_title.text
 
-for name in soup.find_all("div",{"property":"dc:title"}):
-	print(name.text)
 
-for title in soup.find_all("div", {"class": "field-name-field-person-titles"}):
-	print(title.text)
 
 ######### UNIT TESTS; DO NOT CHANGE ANY CODE BELOW THIS LINE #########
 #### NOTE: hard-coding to pass any of these tests w/o following assignment instructions is not acceptable for points
