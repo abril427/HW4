@@ -103,6 +103,8 @@ umsi_titles = {}
 for name in soup.find_all("div",{"property":"dc:title"}):
 	print(name.text)
 
+for title in soup.find_all("div", {"class": "field-name-field-person-titles"}):
+	print(title.text)
 
 ######### UNIT TESTS; DO NOT CHANGE ANY CODE BELOW THIS LINE #########
 #### NOTE: hard-coding to pass any of these tests w/o following assignment instructions is not acceptable for points
