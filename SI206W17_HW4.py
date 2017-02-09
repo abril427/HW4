@@ -79,6 +79,7 @@ response = requests.get("https://www.si.umich.edu/directory?field_person_firstna
 htmldoc = response.text
 
 soup = BeautifulSoup(htmldoc,"html.parser")
+# print(soup)
 people = soup.find_all("div",{"class":"views-row"})
 umsi_titles = {}
 
@@ -91,9 +92,16 @@ umsi_titles = {}
 ## Find the container that holds the title that belongs to that person (HINT: a class name)
 ## Grab the text of each of those elements and put them in the dictionary umsi_titles properly
 
+# print(people)
+# for person in people:
+# 	d = person.div
+# 	print(d)
+	# print("****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************")
+	# name = (d.find({"class": "field-name-title"}))
+	# title = (d.find(({"class": "field-name-field-person-titles"})))
 
-
-
+for name in soup.find_all("div",{"property":"dc:title"}):
+	print(name.text)
 
 
 ######### UNIT TESTS; DO NOT CHANGE ANY CODE BELOW THIS LINE #########
